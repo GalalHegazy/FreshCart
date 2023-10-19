@@ -1,0 +1,102 @@
+<section class="container-fluid my-4 " *ngIf="productsCart; else msg ">
+    <h1 class="fs-2 fw-bolder text-decoration-underline text-center  ">My <span class="coustom-color"> Cart</span> </h1>
+
+
+
+    <div class="row g-0 d-flex justify-content-evenly flex-wrap-reverse align-items-end  ">
+
+
+        <div *ngFor="let prodcart of productsCart.products " class="col-lg-7 p-2    ">
+
+
+
+            <div class="w-100 bg-opacity-75 bg-white d-flex rounded-4 p-1 ">
+
+                <div class="w-50 p-1 rounded-start-3 border border-start-4  ">
+                    <img [src]="prodcart.product.imageCover" class="w-100" />
+                </div>
+
+                <div
+                    class=" prod-desc px-3 py-3 d-flex flex-column justify-content-between  w-75 border border-top-4 border-buttom-4 border-start-0 border-end-0  ">
+                    <div>
+                        <span class="   fw-lighter fs-6 text-muted">{{prodcart.product.category.name}}</span>
+                        <p class=" fw-bolder fs-4 ">{{prodcart.product.title}}</p>
+                        <span class=" fw-lighter text-muted ">Sold by {{prodcart.product.brand.name}} </span>
+
+                    </div>
+
+
+
+                    <button (click)="removeItem(prodcart.product._id)" class="rounded-5 p-1 text-white"><i
+                            class="fa-solid fa-trash-can"></i> Remove</button>
+                </div>
+
+                <div
+                    class="  px-2   d-flex flex-column  justify-content-between  border border-start-0  rounded-end-3   ">
+                    <div class="mt-5 ">
+                        <span class="fw-bolder fs-4 prod-price ">{{prodcart.price}}EGP</span>
+                    </div>
+
+                    <div class=" add-rem-item d-flex mb-3 me-2 justify-content-center align-items-center">
+                        <button (click)="checkCount(prodcart.count -1 ,prodcart.product._id)"
+                            class="count-btn bg-opacity-75 bg-dark text-white border bg-gradient"><i
+                                class="fa-solid fa-minus"></i></button>
+                        <span class="mx-1 prod-price">{{prodcart.count}}</span>
+                        <button (click)="checkCount(prodcart.count +1 ,prodcart.product._id)"
+                            class="count-btn bg-opacity-75 bg-dark text-white border border"><i
+                                class="fa-solid fa-plus"></i></button>
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+        <div class=" h-50  col-lg-4 pt-2 px-3 rounded-3 border border-3 bg-opacity-75 bg-white "
+            *ngIf="productsCart.products.length>0 ;else msg">
+
+            <h1 class="text-center total-price-color  mb-3">Order Summary</h1>
+            <div
+                class="d-flex justify-content-between  border border-bottom-4 border-top-0 border-start-0 border-end-0 ">
+                <p class="text-muted fw-light fs-6">Subtotal:</p>
+                <span class="text-muted fw-light fs-6">{{productsCart.totalCartPrice}}</span>
+            </div>
+            <div class="d-flex justify-content-between">
+                <p class="total-price-color fw-bolder fs-5 fs-3">Total:</p>
+                <span class="total-price-color fw-bolder fs-3">{{productsCart.totalCartPrice }}EGP</span>
+            </div>
+            <div class="d-flex justify-content-center align-items-center mt-5 mb-4">
+                <button [routerLink]="['/payment', productsCart._id  ]" class="btn btn-primary">CHECK OUT</button>
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+</section>
+
+<ng-template #msg>
+    <div class="text-center py-5 ">
+        <h1 class="text-center fw-bolder ">Your fresh Cart is empty</h1>
+        <img src="../../assets/img/kettle-desaturated._CB445243794_.svg" class="w-25">
+    </div>
+</ng-template>

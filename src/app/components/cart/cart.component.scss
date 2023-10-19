@@ -1,0 +1,41 @@
+@import "../../../styles.scss";
+section{
+    font-family:$font-family2;
+}
+.prod-desc{
+
+    span{
+        font-size: 12px;
+
+    }
+    p{
+        color: $text-color;
+    }
+    button{
+        border: none;
+        width: 50%;
+        background-color: red;
+        margin-top: 50px;
+        &:hover{
+            background-color: rgba(202, 2, 2, 0.952);
+        
+        }
+    }
+}
+.prod-price{
+    color: $text-color;
+}
+.count-btn{
+    border: none;
+    border-radius: 50%;
+    &:hover{
+        background-color:$bg-sec-color !important ;
+    }
+}
+.coustom-color{
+    color:$bg-sec-color ;
+}
+.total-price-color{
+    color: $text-color;
+
+}

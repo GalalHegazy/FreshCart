@@ -1,0 +1,95 @@
+<section>
+   
+    <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+        <form [formGroup]="signUpForm" (ngSubmit)="signup()" >
+
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="card-size bg-white mt-4 rounded-3 shadow-lg d-flex flex-column justify-content-center align-items-center ">
+                    <h3 class="fw-bold mt-2" >Create an account .</h3>
+                    <h3 *ngIf="errormessage"  class="text-danger pt-1 ">{{errormessage}}</h3>
+                    <div  class="input w-100 d-flex justify-content-center align-items-center my-3 ">
+                        <i class="fa-solid fa-user fs-2 me-3 "></i>
+                        <input formControlName="name" class="form-control w-75 border-5" placeholder="Name"  type="text" />
+
+                        <div *ngIf="signUpForm.get('name')?.errors&&signUpForm.get('name')?.touched" class="alert alert-danger d-flex  align-items-center text-center" role="alert">
+                            <p *ngIf="signUpForm.get('name')?.getError('required')" class="text-danger fw-bolder fs-6  w-100 h-100">Required Input</p>
+                            <p *ngIf="signUpForm.get('name')?.getError('minlength')" class="text-danger fw-bolder fs-6  w-100 h-100">minLength is (3)</p>
+                            <p *ngIf="signUpForm.get('name')?.getError('maxlength')" class="text-danger fw-bolder fs-6  w-100 h-100">minLength is (15)</p>
+                           
+    
+                        </div>
+
+                        
+                    </div>
+ 
+                    <div  class=" input w-100 d-flex justify-content-center align-items-center mb-3">
+                        <i class="fa-solid fa-envelope  fs-2 me-3"></i>
+                        <input formControlName="email" class="form-control w-75 border-5  " placeholder="Email" type="email" />
+                        <div *ngIf="signUpForm.get('email')?.errors&&signUpForm.get('email')?.touched" class="alert alert-danger d-flex  align-items-center text-center" role="alert">
+                            <p *ngIf="signUpForm.get('email')?.getError('required')" class="text-danger fw-bolder fs-6  w-100 h-100">Required Input</p>
+                            <p *ngIf="signUpForm.get('email')?.getError('email')" class="text-danger fw-bolder fs-6  w-100 h-100">Enter valid Email</p>
+                           
+    
+                        </div>
+                    </div>
+
+    
+                    <div class="input w-100 d-flex justify-content-center align-items-center mb-3">
+                        <i class="fa-solid fa-key fs-2 me-3"></i>
+                        <input formControlName="password" class="form-control w-75 border-5 " placeholder="Password" type="password" />
+                        
+                        <div *ngIf="signUpForm.get('password')?.errors&&signUpForm.get('password')?.touched" class="alert alert-danger d-flex  align-items-center text-center" role="alert">
+                            <p *ngIf="signUpForm.get('password')?.getError('required')" class="text-danger fw-bolder fs-6  w-100 h-100">Required Input</p>
+                            <p *ngIf="signUpForm.get('password')?.getError('pattern')" class="text-danger fw-bolder fs-6  w-100 h-100">must be(A-Z or a-z)and(0-9)</p>
+                        </div>
+                    </div>
+
+
+
+                    <div class="input w-100 d-flex justify-content-center align-items-center mb-3">
+                        <i class="fa-solid fa-key fs-6 "></i>
+                        <i class="fa-solid fa-check-double fs-2 me-1"></i>
+                        <input formControlName="rePassword" class="form-control w-75 border-5 " placeholder="RePassword" type="password" />
+                        <div *ngIf="signUpForm.get('rePassword')?.errors&&signUpForm.get('rePassword')?.touched" class="alert alert-danger d-flex  align-items-center text-center" role="alert">
+                            <p *ngIf="signUpForm.get('rePassword')?.getError('required')" class="text-danger fw-bolder fs-6  w-100 h-100">Required Input</p>
+                            <p *ngIf="signUpForm.get('rePassword')?.getError('mismatch')" class="text-danger fw-bolder fs-6  w-100 h-100">Password is Not Matched</p>
+
+                           
+    
+                        </div>
+                        
+                    </div>
+
+                    <div class="input w-100 d-flex justify-content-center align-items-center mb-3">
+                        <i class="fa-solid fa-phone fs-2 me-3"></i>
+                        <input formControlName="phone" class="form-control w-75 border-5 " placeholder="Phone" type="tel" />
+                        <div *ngIf="signUpForm.get('phone')?.errors&&signUpForm.get('phone')?.touched" class="alert alert-danger d-flex  align-items-center text-center" role="alert">
+                            <p *ngIf="signUpForm.get('phone')?.getError('required')" class="text-danger fw-bolder fs-6  w-100 h-100 ">Required Input</p>
+                            <p *ngIf="signUpForm.get('phone')?.getError('pattern')" class="text-danger fw-bolder fs-6  w-100 h-100">Enter your Number</p>
+
+                           
+    
+                        </div>
+                    </div>
+    
+                        <button [ngClass]="{'btnorang':bgcolor }" type="submit" [disabled]="signUpForm.invalid"  class="btn fs -5 text-white rounded-5 mb-4">
+                            <i *ngIf="islouding" class="fa-sharp fa-solid fa-spinner fa-spin me-1"></i>
+                            Sign Up</button>
+    
+    
+                    <p class="fw-bolder "> Already have an account? <a  class=" text-decoration-none fw-bold text-info" routerLink="/login">LogIn</a></p> 
+
+    
+    
+    
+                </div>
+                
+            </div>
+            
+        </form>
+    </div>
+ 
+
+</section>
+
+

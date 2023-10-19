@@ -1,0 +1,64 @@
+<section>
+    <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+
+        <form  [formGroup]="loginForm" (ngSubmit)="login()"  >
+
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="card-size bg-white mt-4 rounded-3 shadow-lg d-flex flex-column justify-content-center align-items-center ">
+
+                    <h4 class="fw-bold mt-3">Welcome back!</h4>
+                    <h3 class="fw-bold mt-1" >Sign in to your account .</h3>
+                    <h3 *ngIf=" errormessage"  class="text-danger pt-1 ">{{errormessage}}</h3>
+                
+    
+                    <div  class=" input w-100 d-flex justify-content-center align-items-center my-3">
+                        <i class="fa-solid fa-envelope  fs-2 me-3"></i>
+                        <input formControlName="email" class="form-control w-75 border-5  " placeholder="Email" type="email" />
+
+                        <div *ngIf="loginForm.get('email')?.errors&&loginForm.get('email')?.touched" class="alert alert-danger d-flex  align-items-center text-center" role="alert">
+                            <p *ngIf="loginForm.get('email')?.getError('required')" class="text-danger fw-bolder fs-6  w-100 h-100">Required Input</p>
+                            <p *ngIf="loginForm.get('email')?.getError('email')" class="text-danger fw-bolder fs-6  w-100 h-100">Enter valid Email</p>
+                        </div>
+
+
+
+
+                    </div>
+    
+                    <div class=" input w-100 d-flex justify-content-center align-items-center mb-3">
+                        <i class="fa-solid fa-key fs-2 me-3"></i>
+                        <input formControlName="password" class="form-control w-75 border-5 " placeholder="Password" type="password" />
+
+                        <div *ngIf="loginForm.get('password')?.errors&&loginForm.get('password')?.touched" class="alert alert-danger d-flex  align-items-center text-center" role="alert">
+                            <p *ngIf="loginForm.get('password')?.getError('required')" class="text-danger fw-bolder fs-6  w-100 h-100">Required Input</p>
+                            <p *ngIf="loginForm.get('password')?.getError('pattern')" class="text-danger fw-bolder fs-6  w-100 h-100">must be(A-Z or a-z)and(0-9)</p>
+
+                           
+    
+                        </div>
+
+
+
+                    </div>
+
+
+            
+    
+    
+                        <button [ngClass]="{'btnorang':bgcolor }" type="submit" [disabled]="loginForm.invalid"   class="btn fs -5 text-white rounded-5 mb-4">
+                            <i *ngIf="islouding"  class="fa-sharp fa-solid fa-spinner fa-spin me-1"></i>
+                            Login</button>
+    
+    
+                    <p class="fw-bolder "> Don't have an account? <a  class=" text-decoration-none fw-bold text-info" routerLink="/signup">SignUp</a></p> 
+
+    
+    
+    
+                </div>
+            </div>
+        </form>
+    </div>
+ 
+
+</section>

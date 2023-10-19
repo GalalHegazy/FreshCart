@@ -1,0 +1,63 @@
+<section class="container py-4">
+    <div class="row g-2 d-flex  justify-content-center align-items-center">
+        <h2 class=" fw-bolder text-center head-of-product mb-4">ALL <span class="style-head">PRODUCTS</span></h2>
+        <div *ngFor="let prod of allProduct | paginate: { id: 'productPage',
+        itemsPerPage: pageSize,
+        currentPage: page,
+        totalItems: totalPage }" class="col-lg-3 col-md-4 ">
+  
+          <div class="card card-product h-100">
+            <a [routerLink]="['/Productdetalis',prod._id]" class="text-decoration-none">
+            <div class=" position-relative">
+            <img [src]="prod.imageCover" class="img-product card-img-top w-100 h-100  p-2 rounded-4" alt="...">
+              
+            
+          </div>
+
+            <div class="card-body py-1 p-3 rounded-top-4 shadow-lg">
+              <h6 class="card-title fw-bold ">{{prod.category.name}}</h6>
+              <p class="card-text py-3  fa-xl text-muted ">{{prod.title.split(' ').slice(0,2).join(' ')}}</p>
+              <span class="text-muted fw-bolder">{{prod.price}} EGP</span>
+            </div>
+            <div class="card-footer py-1  rounded-bottom-2 p-0 d-flex justify-content-between">
+              <small class="text-body-secondary ms-1  fw-lighter">Sold By {{prod.brand.name}}</small>
+              <small class="text-body-secondary me-1 rating rounded-5 px-1  "> {{prod.ratingsAverage}} <i class="fa-solid fa-star "></i></small>
+            </div>
+          </a>
+          <div (click)="addProductCart(prod._id)" class="cart-plus d-flex justify-content-center align-items-center rounded-5">
+            <i  class="fa-solid fa-cart-plus fs-4 text-white"></i>
+          </div> 
+
+          <div class="wish-list d-flex justify-content-center align-items-center rounded-5">
+            <i class="fa-solid fa-heart-circle-plus fs-4 text-white"></i>
+          </div>
+          </div>
+
+
+
+
+
+
+
+
+
+          </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center pt-5">
+      <pagination-controls  id="productPage"
+                      (pageChange)="pageChanged($event)"
+                      (pageBoundsCorrection)="pageChanged($event)"
+                      [maxSize]="9"
+                      [directionLinks]="true"
+                      [autoHide]="true"
+                      [responsive]="true"
+                      previousLabel="Previous"
+                      nextLabel="Next"
+                      screenReaderPaginationLabel="Pagination"
+                      screenReaderPageLabel="page"
+                      screenReaderCurrentLabel="You're on page">
+       </pagination-controls>
+    </div>
+  
+
+</section>

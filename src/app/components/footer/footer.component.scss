@@ -1,0 +1,20 @@
+@import "../../../styles.scss";
+footer{
+    background-color:$bg-nav-footer;
+}
+.btn{
+    background-color:$bg-sec-color ;
+    padding: 5px;
+    font-size: smaller; 
+}
+input{
+    padding: 5px;
+    border: none;
+    outline: none;
+    background-color: white;  
+    width: 520px;
+}
+
+img ,i{
+    cursor: pointer;
+}

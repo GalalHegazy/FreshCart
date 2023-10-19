@@ -1,0 +1,51 @@
+<section>
+    <div class="w-100 h-100 d-flex justify-content-center align-items-center ">
+    
+        <form  [formGroup]="checkForm" (ngSubmit)=" handelForm()"   >
+
+            <div class="d-flex justify-content-center align-items-center ">
+                <div class="card-size bg-white mt-4 rounded-3 shadow-lg d-flex flex-column justify-content-center align-items-center ">
+
+                     <h4 class="fw-bolder mt-3  text-dark text-start">Payment Details</h4>
+                    <span class="fw-lighter mt-1 text-muted text-center mx-3  " >Complete your purchase by providing your payment details</span>
+                    
+                
+    
+                    <div  class=" input w-100 d-flex justify-content-center align-items-center my-3">
+                        <i class="fa-solid fa-id-badge  fs-2 me-3"></i>
+                        <input  formControlName="detalis" class="form-control w-75 border-5  " placeholder="Details" type="text" />
+                    </div>
+    
+
+                    <div class=" input w-100 d-flex justify-content-center align-items-center mb-3">
+                        <i class="fa-solid fa-phone fs-4 me-3"></i>
+                        <input formControlName="phone" class="form-control w-75 border-5 " placeholder="Phone" type="tel" />
+                    </div>
+
+
+                    <div class=" input w-100 d-flex justify-content-center align-items-center mb-3">
+                       
+                        <i class="fa-regular fa-building fs-2 me-3"></i>
+                        <input formControlName="city" class="form-control w-75 border-5 " placeholder="City" type="text" />
+                    </div>
+
+
+            
+    
+    
+                        <button  class="btn fs-5 text-white rounded-5 my-4">
+                           <i class="fa-solid fa-cash-register text-white"></i>
+                            Pay Now</button>
+    
+    
+                   
+    
+    
+    
+                </div>
+            </div>
+        </form>
+    </div>
+ 
+
+</section>

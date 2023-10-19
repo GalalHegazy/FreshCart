@@ -1,0 +1,93 @@
+@import "../../../styles.scss";
+
+
+.card-body{
+    background-color:  rgba(33, 37, 41, 0.09);
+    border-top: 1px solid rgba(0, 0, 0, 0.425) ;
+}
+.card-footer{
+    background-color:  rgba(33, 37, 41, 0.09);
+
+}
+.card-product{
+    font-family: $font-family2;
+    border: 1px solid rgba(0, 0, 0, 0.356);
+    cursor: pointer;
+    transition: all 0.5s;
+    
+}
+.card-product:hover{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    
+}
+
+.card-title{
+    font-size: 15px;
+    color:$bg-sec-color ;
+}
+.rating{
+    color: white !important;
+    background-color: rgb(56, 174, 4);
+}
+.cart-plus{
+    position: absolute;
+    background-color: $bg-nav-footer ;
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    right: -1%;
+    opacity: 0;
+    transition: all 1s;
+    
+}
+.cart-plus:hover{
+    background-color:$bg-sec-color;
+    transform: scale(1.2);
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+.card-product:hover .cart-plus{
+    opacity: 1;
+    right: 10px;
+}
+.wish-list{
+    position: absolute;
+    background-color: $bg-nav-footer ;
+    width: 40px;
+    height: 40px;
+    top:10px;
+    left: -1%;
+    opacity: 0;
+    transition: all 1s;
+}
+.wish-list:hover{
+    background-color:red;
+    transform: scale(1.2);
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+.card-product:hover .wish-list{
+    opacity: 1;
+    left: 10px;
+}
+
+.catg-card{
+    font-family: $font-family2;
+    
+    
+    img{
+        border-radius: 100%;
+        box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    }
+    h6{
+        color:$text-color;
+       font-size: small;
+
+    }
+
+}
+.style-head{
+        color:$bg-sec-color;
+        font-style: inherit;
+}
+
+
+

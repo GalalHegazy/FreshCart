@@ -1,0 +1,91 @@
+@import "../../../styles.scss";
+
+img{
+    width: 35px;
+    background-color:$bg-sec-color;
+}
+.navbar {
+    background-color: $bg-nav-footer;
+    
+}
+.navbar-toggler{
+    background-color: $bg-sec-color !important ;
+    
+}
+.navbar-toggler:focus{
+    box-shadow: none !important;
+}
+.active{
+    background-color:#66549b57;
+    border-radius: 15%;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;  
+}
+.nav-end{
+    width: 220px;
+    height: 100%;
+        .nav-cart {
+                 cursor: pointer;
+                 position: relative;
+                        small{
+                            letter-spacing: 1px;
+                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                            position: absolute;
+                            font-weight: lighter;
+                            bottom: -8px;
+                        }
+                }
+                button{
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    font-weight: bolder;
+                }
+}
+.nav-cart:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+} 
+button:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    color: red !important;
+} 
+
+.form-control{
+    padding: 5px !important; 
+}
+.form-control:focus {
+    outline: 0;
+    box-shadow: none!important;
+}
+
+
+@media screen and (max-width: 1200px) {
+   
+    .navbar-collapse:focus-visible{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;  
+    }
+    .navbar-nav{
+        text-align: center;
+
+        width: 80% !important;
+              li{
+                margin-bottom: 2px;
+                
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                a{
+                    width: 70% !important;
+                }
+              } 
+    }
+    .nav-end{
+
+        margin-top: 7px;
+        width: 100% !important;
+    } 
+}
+// .badge{
+//    width: 5%;
+//    height: 2%;
+// }

@@ -1,0 +1,42 @@
+<section class=" container  my-5" *ngIf="productData">
+    <div class="row p-5  ">
+  
+      <div class=" d-flex justify-content-center align-items-center ">
+  
+          <div class="col-lg-5  col-md-6 h-100  d-flex flex-column justify-content-center img-product rounded-start-4 p-2">
+             
+              <owl-carousel-o [options]="customOptions" >
+                <ng-container *ngFor="let img of productData.images"  >
+                  <ng-template carouselSlide  >
+                    <img  [src]="img" class="w-100" >
+                  </ng-template>
+                </ng-container>
+              </owl-carousel-o>
+  
+          </div>
+  
+          <div class="col-lg-7 col-md-6   h-100 bg-light d-flex flex-column justify-content-center p-3 card-product-ditals rounded-end-4  ">
+              <span class="fs-6 mb-2  fw-lighter text-muted">{{productData.category?.name}}</span>
+              <h3 class="fw-bolder mb-2 color-titel " >{{productData.title}}</h3>
+              <p class=" fw-normal text-muted fs-4">{{productData.description?.split(' ').slice(0,10).join(' ')}}</p>
+              <div class="d-flex justify-content-between">
+                  <span class="rating rounded-5 px-1 ">{{productData.ratingsAverage}}<i class="fa-solid fa-star fs-6 "></i></span>
+                  <span class="me-5 name-brand fw-lighter text-muted">Sold By {{productData.brand?.name}}</span>
+              </div>
+              
+              <span class="mt-2 fw-bolder color-titel fs-4">{{productData.price}} EGP</span>
+  
+  
+              <div class="d-flex ">
+              <button (click)="addProductCart(productData._id)"  class="mt-5 fw-bold fs-5 w-50 rounded-4 p-1  ">Add To Cart </button>
+              <button (click)="addProductToWishList(productData._id)"  class="mt-5 ms-5 fw-bold fs-5 w-50 rounded-4 p-1 bg-danger  ">Add To Wish list </button>
+              </div>
+  
+          </div>
+  
+      </div>
+    </div>
+  
+  
+  </section>
+  

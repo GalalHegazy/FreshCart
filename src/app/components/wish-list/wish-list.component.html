@@ -1,0 +1,61 @@
+<section class="container-fluid my-4 "    >
+    <h1 class="fs-2 pb-1 fw-bolder text-decoration-underline text-center">My <span class="coustom-color">Wish List </span>  </h1>
+  
+
+  
+    <div   class="row g-0 d-flex justify-content-center align-content-center " *ngIf="productsWishData !=0 ; else msg ">
+        
+        
+        <div *ngFor="let productWish of productsWishData"  class="col-lg-7 col-sm-10 p-2 ">
+            
+
+            
+            <div class="w-100 bg-opacity-75 bg-white d-flex rounded-4 p-1 ">
+
+                <div class="w-50 p-1 rounded-start-3 border border-start-4  ">
+                    <img [src]="productWish.imageCover" class="w-100" />
+                </div>
+
+                <div class=" prod-desc px-3 py-3 d-flex flex-column justify-content-between  w-75 border border-top-4 border-buttom-4 border-start-0 border-end-0  ">
+                    <div>
+                        <span class=" fw-lighter fs-6 text-muted">{{productWish.title}}</span>
+                        <p class=" fw-bolder fs-5 ">{{productWish.description.split(' ').slice(0,3).join(' ')}}</p>
+                        <span class=" fw-lighter text-muted ">Sold by {{productWish.brand.name}} </span>
+                        <small class="text-body-secondary me-1 rating rounded-5 ms-5 px-1  "> {{productWish.ratingsAverage}} <i class="fa-solid fa-star "></i></small>
+
+                    </div>
+
+
+                    <div class="d-flex justify-content-between w-100 ">
+                        <button (click)="removeItem(productWish._id)"  class="rounded-5 p-1 text-white"><i class="fa-solid fa-trash-can"></i> Remove</button> 
+                        <button (click)="addProductCart(productWish._id)"  class=" ms-4 bg-success mt-5 fw-bold fs-6 w-50 rounded-4 p-1  ">Add To Cart </button> 
+                    </div>
+                   
+                 </div>
+
+                <div  class="  px-2   d-flex flex-column  justify-content-between  border border-start-0  rounded-end-3   ">
+                    <div class="mt-5 ">
+                        <span class="fw-bolder fs-4 prod-price ">{{productWish.price}}EGP</span>
+                        
+                    </div>
+
+
+
+                </div>
+                
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+</section> 
+
+<ng-template #msg >
+    <div  class="text-center py-5 ">
+      <h1  class="text-center fw-bolder ">wish list is empty</h1>
+      <img src="../../assets/img/kettle-desaturated._CB445243794_.svg" class="w-25">
+  </div>
+</ng-template>
